@@ -1,0 +1,27 @@
+<div id="light" class="white_content">
+    <div id="checking" v-if="ischeckingShow">
+    正在校验请稍后。。。<br />
+    开始时间：{{ startTime }}<br />
+    耗时：<span id="nowDataTime"></span><br />
+    <span @click="stopCheck()"><a href="javascript:">停止</a></span>
+  </div>
+  
+  <div id="checked" v-if="ischeckedShow">
+    本次校验：<br />
+    开始时间：{{ startTime }}<br />
+    结束时间：{{ endTime }}<br />
+    耗时：{{ timeconsuming }}<br />
+    共校验sql {{ all_check_sql_num }} 个，其中错误 {{ err_check_sql_num }} 个。<br/>
+  
+    <input  class="ui-btn ui-btn-blue" type="button" name="watchbutton" id=""  value="查看反馈"  title="查看反馈" 
+    onclick="javascript:window.location.href='../modules/watch_list_error.html'"/>
+  
+    <a href="JavaScript:void(0)"
+        onclick="document.getElementById('light').style.display='none';
+        document.getElementById('fade').style.display='none'">
+         <input  class="ui-btn ui-btn-blue" type="button" name="closebutton" id=""  value="关闭"  title="关闭"  >
+        </a>
+  </div>
+    
+  </div>
+    <div id="fade" class="black_overlay"></div>

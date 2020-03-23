@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Main-Class: com.cn.cdtgxd.CdtgxdApplication
+Class-Path: jackson-databind-2.10.0.jar spring-boot-starter-tomcat-2.2.1
+ .RELEASE.jar spring-boot-autoconfigure-2.2.1.RELEASE.jar javassist-3.24
+ .0-GA.jar stax-ex-1.8.1.jar spring-boot-starter-2.2.1.RELEASE.jar sprin
+ g-boot-starter-aop-2.2.1.RELEASE.jar aspectjweaver-1.9.4.jar snakeyaml-
+ 1.25.jar logback-classic-1.2.3.jar jackson-datatype-jsr310-2.10.0.jar j
+ akarta.validation-api-2.0.1.jar jakarta.transaction-api-1.3.3.jar logba
+ ck-core-1.2.3.jar jul-to-slf4j-1.7.29.jar dom4j-2.1.1.jar byte-buddy-1.
+ 10.2.jar spring-tx-5.2.1.RELEASE.jar jakarta.persistence-api-2.2.3.jar 
+ lombok-1.18.10.jar hibernate-validator-6.0.18.Final.jar jaxb-runtime-2.
+ 3.2.jar spring-boot-starter-web-2.2.1.RELEASE.jar classmate-1.5.1.jar s
+ pring-beans-5.2.1.RELEASE.jar spring-boot-2.2.1.RELEASE.jar spring-aspe
+ cts-5.2.1.RELEASE.jar spring-expression-5.2.1.RELEASE.jar jackson-datat
+ ype-jdk8-2.10.0.jar tomcat-embed-el-9.0.27.jar jboss-logging-3.4.1.Fina
+ l.jar hibernate-commons-annotations-5.1.0.Final.jar spring-core-5.2.1.R
+ ELEASE.jar spring-web-5.2.1.RELEASE.jar tomcat-embed-core-9.0.27.jar hi
+ bernate-core-5.4.8.Final.jar spring-data-commons-2.2.1.RELEASE.jar jand
+ ex-2.0.5.Final.jar jakarta.annotation-api-1.3.5.jar spring-jcl-5.2.1.RE
+ LEASE.jar spring-orm-5.2.1.RELEASE.jar FastInfoset-1.2.16.jar log4j-to-
+ slf4j-2.12.1.jar antlr-2.7.7.jar spring-boot-starter-data-jpa-2.2.1.REL
+ EASE.jar spring-boot-starter-jdbc-2.2.1.RELEASE.jar spring-webmvc-5.2.1
+ .RELEASE.jar ojdbc6-11.1.0.7.0.jar jakarta.activation-api-1.2.1.jar jak
+ arta.xml.bind-api-2.3.2.jar jackson-core-2.10.0.jar spring-context-5.2.
+ 1.RELEASE.jar spring-jdbc-5.2.1.RELEASE.jar spring-aop-5.2.1.RELEASE.ja
+ r spring-boot-starter-logging-2.2.1.RELEASE.jar jackson-module-paramete
+ r-names-2.10.0.jar spring-boot-starter-json-2.2.1.RELEASE.jar slf4j-api
+ -1.7.29.jar spring-boot-devtools-2.2.1.RELEASE.jar spring-data-jpa-2.2.
+ 1.RELEASE.jar HikariCP-3.4.1.jar jackson-annotations-2.10.0.jar spring-
+ boot-starter-validation-2.2.1.RELEASE.jar mysql-connector-java-8.0.18.j
+ ar istack-commons-runtime-3.0.8.jar tomcat-embed-websocket-9.0.27.jar t
+ xw2-2.3.2.jar log4j-api-2.12.1.jar
+

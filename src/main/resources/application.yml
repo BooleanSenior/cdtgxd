@@ -1,0 +1,20 @@
+
+spring:
+  mvc:
+    static-path-pattern: /**
+
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    hikari: # springboot 2.0 整合了hikari ,据说这是目前性能最好的java数据库连接池
+      username: root
+      password: root
+  jpa:
+    hibernate:
+      ddl-auto: update  # 第一次建表create  后面用update，要不然每次重启工程会删除表并新建
+    show-sql: true
+server:
+  port: 8999

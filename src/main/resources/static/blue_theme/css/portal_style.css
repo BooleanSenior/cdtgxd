@@ -1,0 +1,566 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background:#f4f4f4 url(../images/portal_page_bgl.png) no-repeat left top;
+	
+	}
+
+.header{
+	position:relative;
+	z-index:-2;
+	background:url(../images/portal_head_right.png) no-repeat right 50%;
+	height:160px;
+	width:100%;
+	}
+.gd-logo{
+	width:1200px;
+	height:160px;
+	margin:0 auto;
+	padding:0;
+	}
+.logo{
+	text-align:center;	
+	}
+.logo img{
+	margin:20px 0 0 0;		
+	}
+.goweb{
+	float:right;
+	top:0;
+	right:10px;	
+	
+	}
+/*@layout*/
+.gd-wrap{
+	width:1200px;
+	margin:0 auto;
+	padding:0;
+	}
+.gd-wrapl{
+	width:300px;	
+	float:left;
+	}
+.gd-wrapr{
+	width:900px;
+	float:left;	
+	}
+/*@panel*/
+/*用户信息*/
+.pn-user{
+	background:url(../images/portal_user_bg.png) no-repeat top left;
+	width:280px;
+	height:130px;
+	margin:0 auto;	
+	padding:15px 0 0 0;
+	}	
+.userinfo{
+	width:240px;
+	margin:0 auto;
+	}
+.userinfo p{
+	font-size:14px;
+	color:#666666;
+	font-weight:bold;
+	line-height:1.8em;
+	letter-spacing:0.08em;		
+	}
+.userinfo font{
+	color:#1975cc	
+	}
+.userbtn{
+	width:180px;
+	margin:15px auto 0 auto;
+	}
+.userbtn span{
+	margin:0 4px;
+	}
+/*人口库*/	
+.pn-popudata{
+	width:280px;
+	height:310px;
+	margin:0 auto;	
+}
+.popudata-title{
+	background:url(../images/portal_panel_title.png) no-repeat;
+	background-position:0 0;
+	height:44px;
+	width:100%;	
+	}
+.popudata-main{
+	background:url(../images/portal_panel_popudatabg.png) no-repeat top left;
+	height:280px;
+	width:100%;	
+	margin:0;
+	}
+.popudata-num{
+	width:270px;
+	margin:0 0 0 0;
+	padding:42px 0 0 6px;
+	height:40px;
+	}
+.popudata-num font{
+	display:block;
+	float:left;
+	font-size:18px;
+	font-weight:bold;
+	text-align:center;
+	color:#a1a1a1;
+	width:27px;	
+	}
+.popudata-num font em{
+	color:#ff8c10;
+	font-size:18px;
+	font-weight:bold;
+	}
+.popudata-today{
+	width:240px;
+	height:48px;
+	margin:14px auto;	
+	text-align:center;
+	}
+.popudata-today span{
+	width:120px;
+	font-size:16px;
+	color:#fff;
+	margin:0 10px 0 0;
+	}
+.popudata-unit{ 
+	width:140px;
+	margin:0 0 0 120px;
+	text-align:center;
+	height:60px;
+	font-size:16px;
+	color:#fff;
+	}
+.popudata-info{
+	width:140px;
+	margin:0 0 0 120px;
+	text-align:center;
+	height:40px;
+	font-size:16px;
+	color:#fff;
+	}
+/*人口信息查询*/	
+.pn-popusearch{
+	width:280px;
+	height:250px;
+	margin:0 auto;
+	}
+.popusearch-title{
+	background:url(../images/portal_panel_title.png) no-repeat;
+	background-position:0 -44px;
+	height:44px;
+	width:100%;	
+	}
+.popusearch-main{
+	background:url(../images/portal_user_bg.png) no-repeat top left;
+	height:300px;
+	width:100%;
+	margin:0 auto;
+	padding:0;
+	}
+.popusearch-form{
+	display:block;
+	width:280px;
+	padding:20px 0 0 14px;
+	}
+.popusearch-form li{
+	width:100%;
+	height:40px;
+	
+	}
+.popusearch-form h4{
+	display:block;
+	float:left;
+	width:70px;
+	font-size:14px;
+	line-height:30px;
+	vertical-align:middle;
+	}
+.popusearch-form label{
+	margin:-2px 10px 0 6px;
+	}
+.popusearch-form span{
+	display:block;
+	width:185px;
+	float:left;
+	height:32px;
+	background:url(../images/portal_input_bg.png) no-repeat left top;
+	}
+.popusearch-form p{
+	display:block;
+	width:185px;
+	float:left;
+	margin:10px 0 0 0;
+	}
+.input-portal{
+	border:0;
+	height:20px;
+	margin:4px 0 0 8px;
+	font-size:14px;
+	width:170px;
+	background:#fff;	
+	}
+.check-portal{
+	
+	}
+.searchbtn{
+	width:210px;
+	margin:0 auto;
+	}
+.searchbtn span{
+	
+	margin:0 10px 0 0;
+	}
+/*数据保障排行*/	
+.pn-rank{
+	width:280px;
+	height:430px;
+	margin:0 auto;
+	}
+.rank-title{
+	background:url(../images/portal_panel_title.png) no-repeat;
+	background-position:0 -86px;
+	height:44px;
+	width:100%;	
+	}
+.rank-main{
+	background:url(../images/portal_user_bg.png) no-repeat top left;
+	height:390px;
+	width:100%;
+	margin:0 auto;
+	padding: 10px 0 0 0;
+	}
+.rank-tabs{
+	width:260px;
+	border-bottom:1px solid #CCC;
+	height:24px;
+	padding:0;
+	margin:0 auto;
+	}
+.rank-tabs ul{
+	width:180px;
+	float:right;
+	height:24px;
+	}
+.rank-tabs li{
+	float:left;
+	width:60px;	
+	line-height:24px;
+	vertical-align:middle;
+	height:24px;
+	text-align:center;	
+	font-size:14px;
+	font-weight:bold;	
+}
+.rank-tabs-on{
+	background:url(../images/portal_rank_tab.png) no-repeat;
+	background-position:0 0;
+	border-bottom:1px #fff solid;
+	
+	}
+.rank-tabs-off{
+	background:url(../images/portal_rank_tab.png) no-repeat;
+	background-position:-60px 0;
+	cursor:pointer;
+	}
+.rank-list{
+	width:260px;
+	background:url(../images/portal_rank_th.png) top no-repeat ;
+	
+	margin:0 auto;
+	padding-top:12px;
+	}
+.rank-listtab{
+	width:250px;
+	margin:0 0 0 0;
+	padding:3px ;
+    border-collapse:collapse;
+	}
+.rank-listtab th{
+	height:30px;
+	font-size:14px;
+	font-weight:bold;
+	}
+.rank-listtab td{
+	height:36px;
+	text-align:right;
+	line-height:34px;
+	font-size:14px;
+	padding:0 6px 0 0;
+	font-weight:bold;
+	vertical-align:middle;
+	border-bottom:1px solid #bebebe;
+	}
+.rank-listtab td h4{
+	color:#e89b13;
+	
+	float:right;
+	font-weight:bold;
+	}
+.rank-list-num{
+	display:block;
+	text-align:center;
+	background:url(../images/portal_rank_icon.png) no-repeat;
+	height:24px;
+	width:24px;
+	line-height:22px;
+	vertical-align:middle;
+	color:#915113;
+	font-weight:bold;
+	margin:3px auto 0 auto;
+	
+	}
+/*示范应用*/	
+.pn-app{
+	width:280px;
+	height:220px;
+	margin:0 auto;
+	}
+.app-title{
+	background:url(../images/portal_panel_title.png) no-repeat;
+	background-position:0 -130px;
+	height:44px;
+	width:100%;	
+	}
+.app-main{
+	background:url(../images/portal_user_bg.png) no-repeat top left;
+	
+	width:100%;
+	margin:0 auto;
+	padding: 15px 0 0 0;
+	text-align:center
+	}
+/*其他应用*/	
+.pn-otherapp{
+	width:280px;
+	height:80px;
+	margin:0 auto;
+	}
+.otherapp-title{
+	background:url(../images/portal_panel_title.png) no-repeat;
+	background-position:0 -170px;
+	height:36px;
+	width:100%;	
+	}
+.otherapp-main{
+	height:40px;
+	width:100%;
+	margin:0 auto;
+	padding: 15px 0 0 0;
+	text-align:center
+	}
+.select-app{
+	border:1px solid #CCC;
+	height:36px;
+	width:260px;
+	padding:3px 4px 3px 8px;
+	font-size:14px;
+	-moz-border-radius:4px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:4px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:4px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+	
+	}
+/*导航nav*/
+.nav{
+	width:880px;
+	margin:0 auto;
+	height:34px;
+	border-bottom:3px solid #fbb544;
+	}
+.nav ul{
+	
+	}
+.nav li{
+	float:left;
+	height:34px;
+	width:104px;
+	border-bottom:3px solid #686868
+	}
+.nav a{
+	display:block;
+	width:104px;
+	color:#333333;
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
+	background:url(../images/portal_nav_line.png) no-repeat right;
+	
+	}
+.nav a:hover{
+	text-decoration:none;
+	color:#3d679e;
+	}
+a.current{
+	color:#e12d39	
+	}
+/*平台信息图*/
+.pn-infograp{
+	width:880px;
+	margin:10px auto;
+	border-left:1px solid #d2d2d2;
+	border-right:1px solid #d2d2d2;
+	border-bottom:1px solid #d2d2d2;
+	background:#fff;
+	}
+.infograp-tabs{
+	height:36px;
+	border:1px solid #d2d2d2;
+	width:100%;
+	margin:0;	
+	background:#fff;
+	}
+.infograp-tabs li{
+	float:left;
+	width:200px;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	line-height:36px;
+	vertical-align:middle;
+	
+	}
+.infograp-tabs-on{
+	height:33px;
+	border-top:3px solid #fbb544;
+	border-bottom:1px solid #ffffff;
+	background:#fff;
+	border-left:1px solid #d2d2d2;
+	border-right:1px solid #d2d2d2;
+	color:#f3a629;
+	}
+.infograp-tabs-off{
+	
+	}
+.infograp-main{
+	
+	height:420px;
+	background:#fff;
+	
+	}
+.infograp-gif{
+	background:url(../images/infograp.gif) no-repeat top center;
+	height:420px;
+	}
+.infograp-loca{
+	position:relative;	
+	-webkit-text-size-adjust: none;
+	}
+.infograp-num1{
+	position:absolute;
+	top:369px;
+	left:56px;
+	}
+.infograp-num2{
+	position:absolute;
+	top:369px;
+	left:444px;
+	}
+.infograp-num3{
+	position:absolute;
+	top:369px;
+	left:655px;	
+	color:#fff;
+	}
+.infograp-loca li{
+	float:left;
+	width:46px;
+	height:30px;
+	padding:0 ;
+	}
+.infograp-loca font{
+	
+	display:inline-block;
+	width:41px;
+	font-size:10px;
+	-webkit-transform:scale(0.8);-o-transform:scale(1);
+	text-align:right;
+	line-height:20px;
+	vertical-align:middle
+	
+	}
+/*gis*/
+.pn-infogis{
+	width:880px;
+	margin:10px auto;	
+	border-left:1px solid #d2d2d2;
+	border-right:1px solid #d2d2d2;
+	border-bottom:1px solid #d2d2d2;
+	background:#cbdeed url(../images/portal_gis01_bg.png) repeat-x top;
+	}
+.infogis-main{
+		height:550px;	
+		padding-top:20px;
+	}
+/*新闻类*/
+.pn-news{
+	width:880px;
+	margin:10px auto;	
+	border-top:4px solid #fbb647;
+	}
+.newslist{
+	width:438px;
+	border-left:1px solid #d2d2d2;
+	border-right:1px solid #d2d2d2;
+	border-bottom:1px solid #d2d2d2;
+	height:300px;
+	margin:1px 0 0 0 ;
+	float:left;
+	background:#fff;
+	}
+.newslist-title{
+	width:438px;
+	height:40px;
+	background:#fff url(../images/portal_news_titlebg.png) repeat-x bottom;
+    border-bottom:0 solid #d2d2d2;
+	
+	overflow:hidden;
+	}
+.newslist-title h4{
+	display:block;
+	width:100px;
+	font-size:16px;
+	font-weight:bold;
+	color:#ec9f32;
+	background:#fff;
+	height:38px;
+    margin-top:5px;
+	text-align:center;
+	line-height:34px;
+	vertical-align:middle;
+	border-bottom:1px solid #fff;
+	}
+.newslist-title span{
+	float:right;
+	margin:9px 6px 0 0 ;	
+	}
+.newslist-main{
+	width:90%;
+	margin:10px auto;
+	padding-left:20px;
+	
+	
+	}
+.newslist-main li{
+	list-style-type:disc;
+	line-height:2.4em;
+	
+	}
+.newslist-main a{
+	font-size:14px;
+	color:#676767;
+	}
+.newslist-main a:hover{
+	color:#3d679e;
+	}
+/*footer*/
+.footer{
+	text-align:center;
+	}
+.footer img{
+	
+	
+	}
+	
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据校验管理系统</title>
+<meta http-equiv=="Pragma" CONTENT="no-cache">
+<meta http-equiv="Window-target" CONTENT="_top">
+<!-------样式文件调用注意不要改变顺序------>
+<link href="../blue_theme/css/base.css" rel="stylesheet" type="text/css" />
+<link href="../blue_theme/css/main_style.css" rel="stylesheet" type="text/css" />
+<link href="../blue_theme/css/new_style.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 7]><link href="../../themes/classic_blue/css/ie7hack.css" rel="stylesheet" type="text/css" media="screen"/><![endif]--><!--不可删--->
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/IP.js"></script>
+<script src="../js/util.js"></script>
+</head>
+
+<body>
+  <div id="app">
+<!--标题开始-->
+<div class="ui-title fn-clear">
+     <span class="ui-title-icon fn-left"><img src="../blue_theme/images/icons/document_add.png"/></span>
+     <h2 class="ui-title-cnt fn-left"> 资源查询- &nbsp;查看</h2>
+     <div class="fn-right">
+       <input class="ui-btn ui-btn-normal" type="button" name="button" id=""  value="返回"  title="返回" 
+       onclick="javascript:history.back(-1)"/>
+    </div>    
+</div>
+<!--标题结束-->
+<span class="x-line fn-clear">&nbsp;</span><!--我是灰色的分割线-->
+<!--表单内容开始-->
+<!-- <form name="" class=""> -->
+
+<div class="bg-subarea">
+  <div class="ui-form fn-clear">
+    <fieldset>
+    <legend>资源信息详情</legend>
+    <table class="ui-table ui-table-form">
+      <tbody class="discolor_form">
+       <tr>
+          <td class="fn-text-center f18" colspan="4"><label for=""><strong>数据校检资源</strong></label></td>
+        </tr>
+       <tr>
+          <td class="ui-form-cl2-l" ><label for="zs">资源类型</label></td>
+          <td class="ui-form-cl2-r ">
+            {{ map.boolean[sites.type] }}
+          </td>
+          <td class="ui-form-cl2-l" ><label for="zs">资源名称</label></td>
+          <td class="ui-form-cl2-r ">{{ sites.sqlname }}</td>
+        </tr>
+         
+        <tr>
+          <td class="ui-form-cl2-l" ><label for="zs">校检Sql</label></td>
+          <td class="ui-form-cl2-r "  colspan="3">
+            <textarea rows="10" cols="30" style="height: 140px;width: 95%;" id="strsql">{{ sites.strsql }}</textarea>
+          </td>        
+        </tr>
+        <tr>
+          <td class="ui-form-cl2-l" ><label for="zs">备注</label></td>
+          <td class="ui-form-cl2-r" colspan="3">{{ sites.remarks }}</td>
+         
+        </tr> 
+        <tr>
+          <td class="ui-form-cl2-l" ><label for="zs">创建时间</label></td>
+          <td class="ui-form-cl2-r ">{{ sites.createtime }}</td>
+          <td class="ui-form-cl2-l" ><label for="zs">更新时间</label></td>
+          <td class="ui-form-cl2-r ">{{ sites.updatetime }}</td>
+        </tr>
+        <tr>
+          <td class="ui-form-cl2-l "><label for="">状态</label></td>
+          <td class="ui-form-cl2-r" colspan="3"> {{ mapflag.boolean[sites.flag] }}</td>
+        </tr>
+      </tbody>
+      </table>
+      </fieldset>
+  </div>
+  <div class="fn-text-center">
+    <input  class="ui-btn ui-btn-blue" type="button" name="button" id="" 
+     value="编辑"  title="编辑" @click="goUpdate(sites)" />
+   <!-- <input  class="ui-btn ui-btn-normal" type="button" name="button" id=""  value="返回"  title="返回"/>-->
+  </div>
+</div>
+</div>
+<!--表单内容结束-->
+</form>
+</body>
+<script>
+  const map = zylxArrMap();
+  const mapflag = mapflagMethod();
+  var app =  new Vue({
+   el: '#app',
+   data: {
+     type: "",
+     sqlname: "",
+     sites: {},
+     zylxArr: []
+   },
+   methods:{
+     getValue:function(){
+      var result;
+      var url=window.location.search; //获取url中"?"符后的字串  
+      if(url.indexOf("?")!=-1){
+          result = url.substr(url.indexOf("=")+1);
+      }
+       let _obj = {id: result};
+           this.$http.post(ip_address()+'/findById',_obj,{emulateJSON:true}).then(function(res){
+                 let  _sites = res.body;
+                 this.sites={..._sites};
+             },function(res){
+                 console.log(res.status);
+             });
+     },
+        zylxByArr:function(){
+          this.zylxArr = zylxArrMethod();
+    },
+     goUpdate:function(sites){
+       window.location.href='../modules/watch_add.html?value='+sites.id;
+     }
+   },
+   computed : {
+       //未使用
+       isValue : function(){
+           str = "动态更新";
+        return str;
+     }
+   }
+ })
+
+ app.getValue();
+ app.zylxByArr();
+</script>
+
+
+<!--                       Javascripts 注意不要改变顺序                      -->
+<script type="text/javascript" SRC="../blue_theme/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" SRC="../blue_theme/js/jquery-migrate-1.1.1.min.js"></script>
+<!-- 表单隔行背景颜色 -->
+<script type="text/javascript" src="../blue_theme/js/trans.table.js"></script>	
+<!-- 组件template -->
+<script type="text/javascript" src="../blue_theme/js/tpl.base.js"></script>	
+<!-- 弹出遮罩层-->
+<script type="text/javascript" src="../blue_theme/lhgdialog/lhgdialog.min.js"></script>
+<script type="text/javascript" src="../blue_theme/js/popupboxs.js"></script>
+</html>

@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* CSS Document */
+/*************** 背景颜色 ***************/
+html{
+   height: 
+
+}
+body {
+    background:#e7ebeb url("../images/login_bg.png") no-repeat fixed;
+    background-position:center;
+    margin: 0;
+    height: 100%;
+   
+}
+.display-off {
+    display: none;
+}
+.display-on {
+    display: block;
+}
+.container {
+   height: 670px;
+   
+
+}
+
+.content {
+    position:absolute;
+    left:50%;
+    top:50%;margin-top:-250px;
+    margin-left:-320px;
+    height:500px;
+    width:640px;
+}/*aileen*/
+
+.header {
+    width: 680px;
+    height: 160px;
+    background: url("../images/login_logo.png") no-repeat center top;
+}/*aileen*/
+.login {
+    width: 680px;
+    height: 325px;
+    background: url("../images/login_main.png") no-repeat;
+}/*aileen*/
+.login-l {
+    float: left;
+    width: 214px;
+    height: 325px;
+}
+#login-l-rk {
+    margin-top: 11px;
+    margin-left: 5px;
+    width: 210px;
+    height: 156px;
+    background: url("../images/login_main_l01.png") no-repeat;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+#login-l-fr {
+    margin-left: 5px;
+    width: 210px;
+    height: 154px;
+    background: url("../images/login_main_l02.png") no-repeat;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+.login-off {
+    filter:alpha(opacity=60);opacity:0.6;
+}
+.login-r {
+    width: 481px;
+    height: 325px;
+    margin-left: -15px;
+    float: left;
+}
+#login-r-rk {
+    width: 481px;
+    height: 325px;
+    background-image: url(../images/login_main_r01.png);
+}
+#login-r-fr {
+    display: none;
+    width: 481px;
+    height: 325px;
+    background-image: url(../images/login_main_r02.png);
+}
+.login-r-title {
+    margin: 0 0 0 0;
+    width: 487px;
+    height: 100px;
+}
+.login-r-title p {
+    padding-top: 60px;
+    padding-left: 85px;
+    font-size: 20px;
+}
+.login-r-title p span {
+    color: #269adb;
+}
+.login-r-input {
+    margin: 0 0 0 0;
+    width: 487px;
+    height: 120px;
+}
+.fname {
+    margin-left: 80px;
+    width: 330px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 34px;
+    color: #5a5a5a;
+    background-color: rgb(240,240,240);
+}
+.pswd {
+    float: left;
+    margin-top: 38px;
+    margin-left: 80px;
+    width: 215px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 34px;
+    color: #5a5a5a;
+    background-color: rgb(240,240,240);
+}
+.login-r-input button {
+    float: left;
+    margin-top: 35px;
+    margin-left: 3px;
+    width: 115px;
+    height: 45px;
+    background-image: url("../images/login_main_rlogin.png");
+}
+
+.footer {
+    margin:0 auto;
+    position: fixed;
+    bottom: 0;
+    left:50%;
+    width: 1220px;
+    margin-left: -610px;
+    height: 170px;
+    background-image: url("../images/login_copyright.png");
+    z-index: -2;
+}

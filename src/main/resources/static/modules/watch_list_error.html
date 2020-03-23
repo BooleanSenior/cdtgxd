@@ -1,0 +1,387 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>数据校验管理系统</title>
+  <meta http-equiv="Pragma" CONTENT="no-cache">
+  <meta http-equiv="Window-target" CONTENT="_top">
+  <!-------样式文件调用注意不要改变顺序------>
+  <link href="../blue_theme/css/base.css" rel="stylesheet" type="text/css" />
+  <link href="../blue_theme/css/main_style.css" rel="stylesheet" type="text/css" />
+  <!--[if lt IE 7]><link href="../../themes/classic_blue/css/ie7hack.css" rel="stylesheet" type="text/css" media="screen"/><![endif]-->
+  <!--不可删--->
+  <script src="../js/vue.min.js"></script>
+  <script src="../js/vue-resource.min.js"></script>
+  <script src="../js/IP.js"></script>
+  <script src="../js/util.js"></script>
+
+  <style>
+    /*单行文本的溢出显示省略号*/
+    .p1 {
+      width: 360px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* background: goldenrod; */
+      white-space: nowrap;
+      /*加宽度width属来兼容部分浏览*/
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <form name="" action="#" ui-form>
+      <!--标题开始-->
+      <div class="ui-title fn-clear">
+        <span class="ui-title-icon fn-left"><img src="../blue_theme/images/icons/display.png" /></span>
+        <h2 class="ui-title-cnt fn-left">资源查询 - 资源检验反馈列表</h2>
+
+        <span class="ui-searchbar-btn fn-right" id="search-box-btn">
+          <a href="javascript:slideToggle('#search-general')" id="searchbar-icon" class="hide-search"></a>
+        </span>
+      </div>
+      <!--标题结束-->
+      <!--副功能按钮结束-->
+      <span class="x-line fn-clear">&nbsp;</span>
+      <!--我是灰色的分割线-->
+      <!--search start 搜索面板开始-->
+      <div class="ui-search fn-clear">
+        <div class="ui-search-general fn-clear" id="search-general">
+          <table class="ui-table ui-table-search fn-left">
+            <tbody>
+              <tr>
+                <!-- <td class="fn-text-right"><label>资源类型</label></td>
+          <td>
+            <select v-model="type">
+            <option value="" selected="selected">请选择</option>
+            <option v-for="zylx in zylxArr" :value="zylx.code" :key="zylx.code">{{zylx.name}}</option>
+            </select>
+        </td> -->
+                <!-- <td class="fn-text-right"><label>资源名称</label></td>
+           <td ><input class="ui-input-wdm" type="text"  id="sqlname" v-model="sqlname"/></td>
+          
+           <td> -->
+                <!-- <input  class="ui-btn ui-btn-blue" type="button" name="button" id=""  value="搜索"  title="搜索" @click="postValue"/> -->
+                <!-- <input class="ui-btn ui-btn-normal" type="reset" value="重置" title="重新填写" onClick=""/></td> -->
+                <input class="ui-btn ui-btn-blue" type="button" name="backbutton" id="" value="返回" title="返回"
+                  onclick="javascript:window.location.href='../modules/watch_list.html'" style="float: left;" />
+                <!-- <input  class="ui-btn ui-btn-blue" type="button" name="addbutton" id=""  value="校验"  title="校验" 
+             @click="goCheck"/> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--search box end-->
+      <!--list start 列表样式-->
+      <div class="ui-list-scroll fn-clear">
+        <table class="ui-table stripetb ui-table-list" id="listscroll">
+          <thead>
+            <tr>
+              <!-- <th class="fn-text-center" width="80">
+            <input type="button" id="selectAll" class="ui-button-check" value="全选"/>
+            <input type="button" id="selectCancel" class="ui-button-check" value="取消"/>
+           </th> -->
+              <th class="fn-text-center" width="80">序号<img src="../blue_theme/images/icons/arrow_down.png" alt=""
+                  width="16" height="16" /></th>
+              <th class="fn-text-left" width="100">
+                <a href="#" @click="sortByAnything(1)">
+                  资源类型<img src="../blue_theme/images/icons/arrow_down.png" alt="" width="16" height="16" /></th>
+              </a>
+              <th class="fn-text-left" width="360">
+                <a href="#" @click="sortByAnything(2)">
+                  资源名称<img src="../blue_theme/images/icons/arrow_down.png" alt="" width="16" height="16" />
+                </a>
+              </th>
+              <th class="fn-text-left" width="200">备注<img src="../blue_theme/images/icons/arrow_down.png" alt=""
+                  width="16" height="16" /></th>
+              <th class="fn-text-left" width="100">
+                数量
+              </th>
+              <th width="120">操作</th>
+            </tr>
+          </thead>
+          <tbody class="discolor">
+
+            <tr v-for="(item,key ,index) in sites" :key='index'>
+              <!-- <td class="fn-text-center" ><input type="checkbox"  name="choice" /></td> -->
+              <td class="fn-text-center">{{ index+1 }}</td>
+              <td>{{ map.boolean[item.type] }}</td>
+              <td>{{ item.sqlname }}</td>
+              <td>
+                <p class="p1">{{ item.remarks }}</p>
+              </td>
+              <td>{{ item.errornums }}</td>
+              <td>
+                <a href="javascript:" @click="goDetail(item)" title="查看" class="btn_lisBtn">查看</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- <div v-if="isLoadShow" class="loadingBack"> -->
+      <div v-if="isLoadShow" id="loading" class="loading">正在校验请稍等...</div>
+      <!-- </div> -->
+    </form>
+
+    <input type="hidden" id="mypageIndex" name="mypageIndex" v-model="mypageIndex">
+    <div class="ui-page">
+      <span class="ui-page-item ui-page-item-info">共{{ allrow }}条记录，共{{ allpage }}页</span>
+      <span class="ui-page-item ui-item-link">
+        <a href="#" class="ui-page-item ui-page-item-first" @click="uiPageItemFirst">首页</a>
+        <a href="#" class="ui-page-item ui-page-item-prev" @click="uiPageItemPrev">上一页</a>
+        <a href="#" class="ui-page-item ui-page-item-current ">{{ currentpage+1 }}</a>
+        <a href="#" class="ui-page-item ui-page-next" @click="uiPageNext">下一页</a>
+        <a href="#" class="ui-page-item ui-page-last" @click="uiPageLast">尾页</a></span>
+    </div>
+
+
+    <!-- 这里是Lightbox弹窗的内容 -->
+    <div id="light" class="white_content">
+      <div id="checking" v-if="ischeckingShow">
+        正在校验请稍后。。。<br />
+        开始时间：{{ startTime }}<br />
+        耗时：<span id="nowDataTime"></span><br />
+        <span @click="stopCheck()"><a href="javascript:">停止</a></span>
+      </div>
+
+      <div id="checked" v-if="ischeckedShow">
+        本次校验：<br />
+        开始时间：{{ startTime }}<br />
+        结束时间：{{ endTime }}<br />
+        耗时：{{ timeconsuming }}<br />
+        共校验sql {{ all_check_sql_num }} 个，其中错误 {{ err_check_sql_num }} 个。<br />
+
+        <!-- <input class="ui-btn ui-btn-blue" type="button" name="watchbutton" id="" value="查看反馈" title="查看反馈"
+          onclick="javascript:window.location.href='../modules/watch_list_error.html'" /> -->
+
+        <a href="JavaScript:void(0)" onclick="document.getElementById('light').style.display='none';
+      document.getElementById('fade').style.display='none'">
+          <input class="ui-btn ui-btn-blue" type="button" name="closebutton" id="" value="关闭" title="关闭">
+        </a>
+      </div>
+
+    </div>
+    <div id="fade" class="black_overlay"></div>
+    <!-- 完 -->
+
+  </div>
+  <script>
+    //
+    const map = zylxArrMap();
+    const mapflag = mapflagMethod();
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: "demo1",
+        allrow: "",
+        allpage: "",
+        currentpage: "",
+        type: "",
+        sortType: "",
+        sqlname: "",
+        mypageIndex: 0,
+        isLoadShow: false,
+        sites: [],
+        zylxArr: [],
+        startTime: "",
+        endTime: "",
+        timeconsuming: "",
+        logid: "",
+        all_check_sql_num: "",
+        err_check_sql_num: "",
+        ischeckingShow: true,
+        ischeckedShow: false
+      },
+      methods: {
+        postValue: function () {
+          let _obj = { type: this.type, sqlname: this.sqlname, pageNum: this.mypageIndex, sortType: this.sortType };
+              //发送 post 请求
+              this.$http.post(ip_address() + '/res/getSqlRes', _obj, { emulateJSON: true }).then(function (res) {
+                console.log(res);
+                //res.data.content == 1000
+                if (res.data.code == 1000) {
+
+                } else {
+                  let _sites = res.data.content;
+                  this.sites = { ..._sites };
+                  this.allrow = res.data.totalElements;
+                  this.allpage = res.data.totalPages;
+                  this.currentpage = res.data.pageable.pageNumber;
+                }
+              }, function (res) {
+                console.log(res.status);
+              });
+        },
+        goDetail: function (item) {
+          window.location.href = '../modules/watch_check.html?value=' + item.checkId;
+        },
+        zylxByArr: function () {
+          this.zylxArr = zylxArrMethod();
+        },
+        sortByAnything: function (val) {
+          if (val == 1) {
+            this.sortType = "type";
+          } else if (val == 2) {
+            this.sortType = "sqlname";
+          } else if (val == 3) {
+            this.sortType = "flag";
+          }
+          app.postValue();
+        },
+        noticepage(){
+          let obj = {};
+          this.$http.post(ip_address() + '/findStrsqlResLogdesc', obj, { emulateJSON: true }).then(function (res) {
+            console.log(res);
+            if (res.data[0].istype == 1){
+                this.logid = res.data[0].id;
+                this.startTime = res.data[0].starttime;
+                this.endTime = res.data[0].endtime;
+                this.timeconsuming = res.data[0].timeconsuming;
+                this.all_check_sql_num = res.data[0].allsqlnum;
+                this.err_check_sql_num = res.data[0].errsqlnum;
+                this.ischeckingShow = false;
+                this.ischeckedShow = true;
+            }else if(res.data[0].istype == 0){
+              this.logid = res.data[0].id;
+                this.startTime = res.data[0].starttime;
+              showTime(this.startTime);
+            }  
+              document.getElementById('light').style.display = 'block';
+              document.getElementById('fade').style.display = 'block';
+          }, function (res) {
+            console.log(res.status);
+          });
+        },
+        uiPageItemFirst: function () {
+          this.mypageIndex = '0';
+          app.postValue();
+        },
+        uiPageLast: function () {
+          this.mypageIndex = this.allpage - 1;
+          app.postValue();
+        },
+        uiPageItemPrev: function () {
+          if (this.mypageIndex > 0) {
+            this.mypageIndex = this.mypageIndex - 1;
+            app.postValue();
+          } else {
+            alert('已经是第一页了');
+          }
+        },
+        uiPageNext: function () {
+
+          if (this.mypageIndex < this.allpage - 1) {
+            this.mypageIndex = this.mypageIndex + 1;
+            app.postValue();
+          } else {
+            alert('已经是最后一页了');
+          }
+        }
+      },
+      computed: {
+        //未使用
+        isValue: function () {
+          str = "动态更新";
+          return str;
+        }
+      }
+    })
+    app.noticepage();
+    app.postValue();
+    app.zylxByArr();
+  </script>
+
+
+  <!--                       Javascripts 注意不要改变顺序                      -->
+  <script type="text/javascript" src="../blue_theme/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../blue_theme/js/jquery-migrate-1.1.1.min.js"></script>
+  <!-- 表单隔行背景颜色 -->
+  <script type="text/javascript" src="../blue_theme/js/trans.table.js"></script>
+  <!-- 组件template -->
+  <script type="text/javascript" src="../blue_theme/js/tpl.base.js"></script>
+  <!-- jQuery Configuration -->
+  <script type="text/javascript" src="../blue_theme/js/simpla.jquery.configuration.js"></script>
+  <script src="../js/paging.js"></script>
+  <style type="text/css">
+    .loading {
+      width: 160px;
+      height: 56px;
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      line-height: 56px;
+      color: #fff;
+      padding-left: 60px;
+      font-size: 15px;
+      background: #000 url(https://img-my.csdn.net/uploads/201211/14/1352886927_7549.gif) no-repeat 10px 50%;
+      opacity: 0.7;
+      z-index: 9999;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+      filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+    }
+
+    .loadingBack {
+      width: 160px;
+      height: 56px;
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      line-height: 56px;
+      color: #fff;
+      padding-left: 60px;
+      font-size: 15px;
+      background: #000 url(https://img-my.csdn.net/uploads/201211/14/1352886927_7549.gif) no-repeat 10px 50%;
+      opacity: 0.7;
+      z-index: 9999;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+      filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+    }
+
+    .black_overlay {
+      display: none;
+      /*    默认不显示 */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /*  以上四条设置覆盖层和网页一样大，并且左上角对齐 */
+      background-color: black;
+      /*  背景为黑色 */
+      z-index: 1001;
+      /* 位于网页最上层 */
+      -moz-opacity: 0.7;
+      /*   Firefox浏览器透明度设置 */
+      opacity: .70;
+      /* 支持css3的浏览器透明度设置 */
+      filter: alpha(opacity=80);
+      /*  IE浏览器透明度设置 */
+    }
+
+    .white_content {
+      display: none;
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      width: 40%;
+      height: 40%;
+      /* 以上四条设置弹出框位置和大小 */
+      padding: 16px;
+      /* border: 16px solid orange; */
+      background-color: white;
+      z-index: 1002;
+      border-radius: 10px;
+      overflow: auto;
+      /* 当内容超出弹出框时，出现垂直滚动条 */
+    }
+  </style>
+</body>
+
+</html>

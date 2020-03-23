@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+.tuli span{line-height:24px;}
+.tuli .ybl{width:16px; height:16px; background:#0080c0;}
+.tuli .blz{width:16px; height:16px; background:#5eca91;}
+.tuli .wbl{width:16px; height:16px; background:#ccc;}
+.tuliBlu{background:#0080c0;}
+.tuliGre{background:#5eca91;}
+.tuliGra{background:#ededed;}
+.liucOrg{background:#ff6c00;}
+.liucheng{
+	background:url(../images/step_line.png) repeat-x 0 28px;
+}
+.gdNumber{color:#0080c0; font-size:24px; font-weight:bold;}
