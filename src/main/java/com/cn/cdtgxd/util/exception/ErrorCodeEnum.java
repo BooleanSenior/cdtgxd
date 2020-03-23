@@ -1,7 +1,7 @@
 package com.cn.cdtgxd.util.exception;
 import org.apache.commons.lang3.StringUtils;
 /**
- * 程序汪：异常码枚举
+ * 异常码枚举
  */
 public enum ErrorCodeEnum {
     SYS_ERROR("SYS_ERROR", "系统错误，请重试"),

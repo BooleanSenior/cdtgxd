@@ -32,7 +32,7 @@ public class AuthorizeException extends RuntimeException{
         this.setErrorCode(errorCode);
     }
     /**
-     * 带参构造器.
+     * 带参构造器.自定义message
      *
      * @param errorCode
      * @param message

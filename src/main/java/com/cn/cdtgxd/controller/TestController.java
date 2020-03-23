@@ -86,13 +86,18 @@ public class TestController {
      */
     @RequestMapping("/findAllPage1")
     public Map<String,Object> findAllPage1(Strsql strsql, int pageNum,String sortType) {
-        System.out.println("异常码：");
+        Map<String, String> maperror = new HashMap<>();
         Map<String, Object> map = new HashMap<>();
         try {
             if (StringUtils.isEmpty(pageNum))
+                //定义简略错误信息
                 throw new AuthorizeException(ErrorCodeEnum.ILLEGAL_ARGS);
-            if (StringUtils.isEmpty(sortType))
-                throw new AuthorizeException(ErrorCodeEnum.ILLEGAL_ARGS);
+            if (StringUtils.isEmpty(sortType)){
+                //定义详细错误信息
+                maperror.put("1","1");
+                maperror.put("2","2");
+                throw new AuthorizeException(ErrorCodeEnum.ILLEGAL_ARGS,maperror);
+            }
 
             map.put("list", strsqlService.findAllPage(strsql, pageNum, sortType));
             return map;
@@ -101,7 +106,7 @@ public class TestController {
             System.out.println("异常码：" + e.getErrorCode().getCode());
             System.out.println("异常描述：" + e.getMessage());
             map.put("code", e.getErrorCode().getCode());
-            map.put("msg", e.getMessage());
+            map.put("msg", e.getErrorMap());
             return map;
         }
     }
