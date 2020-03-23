@@ -4,9 +4,12 @@ import com.cn.cdtgxd.pojo.Strsql;
 import com.cn.cdtgxd.pojo.StrsqlRes;
 import com.cn.cdtgxd.service.StrsqlResService;
 import com.cn.cdtgxd.service.StrsqlService;
+import com.cn.cdtgxd.util.exception.AuthorizeException;
+import com.cn.cdtgxd.util.exception.ErrorCodeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Slice;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -76,6 +79,31 @@ public class TestController {
        Map<String,String> map = new HashMap<>();
      map.put("1","1");
         return map;
+    }
+
+    /**
+     * 分页调用,枚举与自定义异常
+     */
+    @RequestMapping("/findAllPage1")
+    public Map<String,Object> findAllPage1(Strsql strsql, int pageNum,String sortType) {
+        System.out.println("异常码：");
+        Map<String, Object> map = new HashMap<>();
+        try {
+            if (StringUtils.isEmpty(pageNum))
+                throw new AuthorizeException(ErrorCodeEnum.ILLEGAL_ARGS);
+            if (StringUtils.isEmpty(sortType))
+                throw new AuthorizeException(ErrorCodeEnum.ILLEGAL_ARGS);
+
+            map.put("list", strsqlService.findAllPage(strsql, pageNum, sortType));
+            return map;
+        } catch (AuthorizeException e) {
+            e.printStackTrace();
+            System.out.println("异常码：" + e.getErrorCode().getCode());
+            System.out.println("异常描述：" + e.getMessage());
+            map.put("code", e.getErrorCode().getCode());
+            map.put("msg", e.getMessage());
+            return map;
+        }
     }
 
 }
