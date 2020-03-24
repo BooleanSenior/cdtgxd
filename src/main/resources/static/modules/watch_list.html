@@ -20,7 +20,7 @@
   <style>
     /*单行文本的溢出显示省略号*/
     .p1 {
-      width: 360px;
+       width: 360px; 
       overflow: hidden;
       text-overflow: ellipsis;
       /* background: goldenrod; */
@@ -96,12 +96,12 @@
                 <a href="#" @click="sortByAnything(1)">
                   资源类型<img src="../blue_theme/images/icons/arrow_down.png" alt="" width="16" height="16" /></th>
               </a>
-              <th class="fn-text-left" width="360">
+              <th class="fn-text-left" width="200">
                 <a href="#" @click="sortByAnything(2)">
                   资源名称<img src="../blue_theme/images/icons/arrow_down.png" alt="" width="16" height="16" />
                 </a>
               </th>
-              <th class="fn-text-left" width="200">备注<img src="../blue_theme/images/icons/arrow_down.png" alt=""
+              <th class="fn-text-left" width="360">备注<img src="../blue_theme/images/icons/arrow_down.png" alt=""
                   width="16" height="16" /></th>
               <th class="fn-text-left" width="100">
                 <a href="#" @click="sortByAnything(3)">
@@ -113,11 +113,14 @@
           </thead>
           <tbody class="discolor">
 
-            <tr v-for="(item,key ,index) in sites" :key='index'>
+            <tr v-for="(item,key ,index) in sites" :key='index' style="border-bottom: 1px solid #eeeeee;">
               <!-- <td class="fn-text-center" ><input type="checkbox"  name="choice" /></td> -->
               <td class="fn-text-center">{{ index+1 }}</td>
               <td>{{ map.boolean[item.type] }}</td>
-              <td>{{ item.sqlname }}</td>
+              <td>
+                <!-- <p class="p1">{{ item.sqlname }}</p> -->
+                {{ item.sqlname }}
+              </td>
               <td>
                 <p class="p1">{{ item.remarks }}</p>
               </td>

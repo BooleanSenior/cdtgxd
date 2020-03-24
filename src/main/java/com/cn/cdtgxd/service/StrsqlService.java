@@ -138,7 +138,7 @@ public class StrsqlService {
             }
         };
         //pageNum  初始值是0
-        PageRequest pageRequest = PageRequest.of(pageNum, 15, Sort.Direction.DESC , strSortType);
+        PageRequest pageRequest = PageRequest.of(pageNum, 10, Sort.Direction.DESC , strSortType);
         strsqlDao.findAll(specification,pageRequest);
         return strsqlDao.findAll(specification,pageRequest);
     }
@@ -157,7 +157,7 @@ public class StrsqlService {
             List rusult = query.getResultList();
 
             strsqlRes.setCheckId(list.get(i).getId());
-            strsqlRes.setChecktime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+            strsqlRes.setChecktime(MyDate.toFormatTime().format(new Date()));
 
             if (rusult.size() == 1) {
                 Map m = (Map) rusult.get(0);
@@ -218,7 +218,7 @@ public class StrsqlService {
             List rusult = query.getResultList();
 
             strsqlRes.setCheckId(strsql.getId());
-            strsqlRes.setChecktime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+            strsqlRes.setChecktime(MyDate.toFormatTime().format(new Date()));
 
             if (rusult.size() == 1) {
                 Map m = (Map) rusult.get(0);
@@ -238,7 +238,7 @@ public class StrsqlService {
                 }else{
                     System.out.println("有错误sql的序号："+strsql.getId());
                     ERR_CHECK_SQL_NUM ++;
-                    strsqlRes.setErrornums(value);
+                    strsqlRes.setErrornums(String.valueOf(rusult.size()));
                     strsqlResService.saveStrsqlRes(strsqlRes);
                 }
 
@@ -261,7 +261,7 @@ public class StrsqlService {
                 strsqlRes.setErrornums(String.valueOf(rusult.size()));
                 strsqlResService.saveStrsqlRes(strsqlRes);
             }
-            strsql.setChecktime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+            strsql.setChecktime(MyDate.toFormatTime().format(new Date()));
             this.updateOrSave(strsql);
             strsql = getTopOne();
         }
