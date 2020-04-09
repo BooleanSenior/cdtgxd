@@ -238,6 +238,7 @@ public class StrsqlService {
                 }else{
                     System.out.println("有错误sql的序号："+strsql.getId());
                     ERR_CHECK_SQL_NUM ++;
+                    strsqlRes.setCheckSql(strsql.getStrsql());
                     strsqlRes.setErrornums(String.valueOf(rusult.size()));
                     strsqlResService.saveStrsqlRes(strsqlRes);
                 }

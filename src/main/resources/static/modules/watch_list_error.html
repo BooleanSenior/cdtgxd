@@ -105,7 +105,7 @@
           </thead>
           <tbody class="discolor">
 
-            <tr v-for="(item,key ,index) in sites" :key='index'>
+            <tr v-for="(item,key ,index) in sites" :key='index' style="border-bottom: 1px solid #eeeeee;">
               <!-- <td class="fn-text-center" ><input type="checkbox"  name="choice" /></td> -->
               <td class="fn-text-center">{{ index+1 }}</td>
               <td>{{ map.boolean[item.type] }}</td>
